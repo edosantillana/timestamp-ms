@@ -4,6 +4,10 @@ var app = express();
 
 app.use(express.static(__dirname + '/public'));
 
+app.get('/', function(request, response) {
+  response.render('public/index');
+});
+
 app.get('/:dateValue', sendDate);
 
 function sendDate(request, response) {
