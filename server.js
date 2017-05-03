@@ -5,7 +5,7 @@ var app = express();
 
 var server = app.listen(3000);
 
-app.use(express.static('public'));
+app.use(express.static(__dirname + '/public'));
 
 app.get('/:dateValue', sendDate);
 
@@ -29,7 +29,7 @@ function sendDate(request, response) {
       natDate = natDate.toLocaleDateString("en-us", dateFormat);
     } else {
       unixDate = null;
-      natDate = null;      
+      natDate = null;
     }
   }
   response.json({unix: unixDate, natural: natDate});
